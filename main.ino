@@ -16,8 +16,8 @@ void setup(){
 
 
 
+
 void loop () {
-  int i = 0;
   
   
   for(int i = 0; i < NUM_LEDS ; i++){
