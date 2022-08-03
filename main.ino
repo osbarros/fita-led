@@ -34,3 +34,20 @@ void loop () {
   delay(100);
   
 }
+
+
+void loop () {
+  
+  int red = random(0, 255);
+  int green = random(0, 255);
+  int blue = random(0,255);
+  
+  
+  for(int i = 0; i < NUM_LEDS ; i++){
+  	pixels.setPixelColor(i, pixels.Color(red, green, blue));
+    pixels.show();
+    delay(25);
+  }
+  
+  
+}
