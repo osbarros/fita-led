@@ -2,7 +2,7 @@
 
 #define PIN 2
 #define NUM_LEDS 28
-#define botao 1
+#define botao 4
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRB + NEO_KHZ800);
 
@@ -12,6 +12,8 @@ void setup(){
   
   	pixels.begin();
     pinMode(botao, INPUT);
+  	Serial.begin(9600);
+    Serial.print(estadoBotao);
   
 }
 
@@ -27,18 +29,23 @@ void loop () {
     switch(estadoBotao){
 
         case 0: //Acende luz branca
+      		Serial.print(estadoBotao);
             for(int i = 0; i < NUM_LEDS ; i++){
   	            pixels.setPixelColor(i, pixels.Color(0, 0, 0));
                 pixels.show();
             }
+      		
+      		break;
 
         case 1: //feixe de luz
+      		Serial.print(estadoBotao);
            for(int i = 0; i < NUM_LEDS ; i++){
   	            pixels.setPixelColor(i, pixels.Color(0, 100, 0));
                 pixels.setPixelColor(i-3, pixels.Color(0, 0, 0));
                 pixels.show();
                 delay(100);
             }
+      		break;
   
             pixels.setPixelColor(25, pixels.Color(0, 0, 0));
             pixels.setPixelColor(26, pixels.Color(0, 0, 0));
@@ -47,20 +54,22 @@ void loop () {
             delay(100);
 
         case 2: // Acende luz verde
+      		Serial.print(estadoBotao);
             for(int i = 0; i < NUM_LEDS ; i++){
   	            pixels.setPixelColor(i, pixels.Color(100, 0, 0));
                 pixels.show();
                 delay(100);
             }
+      		break;
 
         case 3: // Acende luz vernelha
+      		Serial.print(estadoBotao);
             for(int i = 0; i < NUM_LEDS ; i++){
   	            pixels.setPixelColor(i, pixels.Color(0, 110, 0));
                 pixels.show();
                 delay(100);
             }
+      		break;
     }
 }
-
-//comentario
   
