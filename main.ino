@@ -2,6 +2,7 @@
 
 #define PIN 2
 #define NUM_LEDS 28
+#define botao 1
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRB + NEO_KHZ800);
 
@@ -10,16 +11,16 @@ int estadoBotao = 0; // inicia com o valor de 0 no qual nenhum efeito é exibido
 void setup(){
   
   	pixels.begin();
-    pinMode(1, INPUT);
+    pinMode(botao, INPUT);
   
 }
 
 void loop () {  
     
-    if (digitalRead(1) == HIGH && estadoBotao != 3) 
+    if (digitalRead(botao) == HIGH && estadoBotao != 3) 
         estadoBotao++;
 
-    else if (digitalRead(1) == HIGH && estadoBotao == 3)
+    else if (digitalRead(botao) == HIGH && estadoBotao == 3)
         estadoBotao = 0;
     
 
