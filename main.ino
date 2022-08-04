@@ -10,19 +10,18 @@ int estadoBotao = 0; // inicia com o valor de 0 no qual nenhum efeito é exibido
 void setup(){
   
   	pixels.begin();
-    pinMode(1, INPUT)
+    pinMode(1, INPUT);
   
 }
 
 void loop () {  
     
-    if (digitalRead == HIGH && estadoBotao != 4) {
+    if (digitalRead(1) == HIGH && estadoBotao != 3) 
         estadoBotao++;
-    }
 
-    else if (digitalRead == HIGH && estadoBotao == 3){
+    else if (digitalRead(1) == HIGH && estadoBotao == 3)
         estadoBotao = 0;
-    }
+    
 
     switch(estadoBotao){
 
@@ -53,7 +52,7 @@ void loop () {
                 delay(100);
             }
 
-        case 2: // Acende luz vernelha
+        case 3: // Acende luz vernelha
             for(int i = 0; i < NUM_LEDS ; i++){
   	            pixels.setPixelColor(i, pixels.Color(0, 110, 0));
                 pixels.show();
